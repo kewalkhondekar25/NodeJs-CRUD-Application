@@ -21,7 +21,7 @@ app.get('/hello', (req, res) => {
     res.send('My Nodejs Project')
 })
 
-const port = 8080
+const port = process.env.PORT || 8080
 
 const start = async () => {
     try {
