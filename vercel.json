@@ -1,4 +1,11 @@
-{
-  
-    "buildCommand":"next build"
+{   
+    "buildCommand": "next build",
+    "version":2,
+    "build":[
+        {
+            "src":"./app.js",
+            "use":"@vercel/node"
+              
+        }
+    ]
 }
