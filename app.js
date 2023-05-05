@@ -1,3 +1,8 @@
+/*FlightsAPI*/
+
+//setup .env
+require('dotenv').config()
+
 //importing mongoose module
 const connectDB = require('./database/connect')
 
@@ -8,8 +13,13 @@ const app = express()
 //importing router
 const flights = require('./routes/flights')
 
-//setup .env
-require('dotenv').config()
+
+//extra security package
+const helmet = require('helmet')
+const cors = require('cors')
+const xss = require('xss-clean')
+
+
 
 //setup middleware
 app.use(express.json())
@@ -17,8 +27,12 @@ app.use(express.json())
 //implementing router
 app.use('/api/v1/flights', flights)
 
-app.get('/hello', (req, res) => {
-    res.send('My Nodejs Project')
+app.use(helmet())
+app.use(cors())
+app.use(xss())
+
+app.get('/', (req, res) => {
+    res.send('<h1 style = " background-color:#F5F5F7; color:#7AA874; text-align:center; font-family: Helvetica, Arial; font-weight: 600px; font-size:48px; color:black; margin-top: 300px;">Welcome Onboard!</br><p style="color:grey; font-size:35px"> <a href="#">FlightsAPI</a></p></h1>')
 })
 
 const port = process.env.PORT || 8080
@@ -33,3 +47,4 @@ const start = async () => {
 }
 
 start()
+/*FlightsAPI*/

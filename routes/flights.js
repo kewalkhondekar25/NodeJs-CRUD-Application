@@ -1,3 +1,5 @@
+/*FlightsAPI*/
+
 
 const express = require('express')
 
@@ -13,3 +15,6 @@ router.route('/:id').get(getFlight).patch(updateFlight).delete(deleteFlight)
 
 //exporting router
 module.exports = router;
+
+
+/*FlightsAPI*/

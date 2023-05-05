@@ -1,3 +1,5 @@
+/*FlightsAPI*/
+
 const mongoose = require('mongoose')
 
 const FlightSchema = new mongoose.Schema({
@@ -15,4 +17,10 @@ const FlightSchema = new mongoose.Schema({
     price:Number
 })
 
+
 module.exports = mongoose.model('FlightTbl', FlightSchema)
+
+
+
+
+/*FlightsAPI*/

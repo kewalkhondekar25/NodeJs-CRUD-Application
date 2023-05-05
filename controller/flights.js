@@ -1,3 +1,5 @@
+/*FlightsAPI*/
+
 const Flight = require('../modules/flights')
 
 const getAllFlights = async (req, res) => {
@@ -69,3 +71,5 @@ module.exports = {
     updateFlight,
     deleteFlight
 }
+
+/*FlightsAPI*/
