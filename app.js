@@ -32,7 +32,7 @@ app.use(cors())
 app.use(xss())
 
 app.get('/', (req, res) => {
-    res.send('<h1 style = " background-color:#F5F5F7; color:#7AA874; text-align:center; font-family: Helvetica, Arial; font-weight: 600px; font-size:48px; color:black; margin-top: 300px;">Welcome Onboard!</br><p style="color:grey; font-size:35px"> <a href="#">FlightsAPI</a></p></h1>')
+    res.send('<h1 style = " background-color:#F5F5F7; color:#7AA874; text-align:center; font-family: Helvetica, Arial; font-weight: 600px; font-size:48px; color:black; margin-top: 250px;">Welcome Onboard!</br><p style="color:grey; font-size:35px"> <a href="#">FlightsAPI</a></p></h1>')
 })
 
 const port = process.env.PORT || 8080
