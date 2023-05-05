@@ -14,7 +14,7 @@ const connectDB = require('./database/connect')
 
 const express = require('express')
 const app = express()
-//app.use(cors())
+app.use(cors())
 app.use(helmet())
 app.use(xss())
 
@@ -28,7 +28,7 @@ app.use(express.json())
 
 
 //implementing router
-app.use(cors('/api/v1/flights', flights))
+app.use('/api/v1/flights', flights)
 
 
 app.get('/', (req, res) => {
