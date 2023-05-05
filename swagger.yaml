@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: FlightsAPI
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://flightsapi-iay8r.ondigitalocean.app/api/v1
+  variables: {}
+paths:
+  /flights:
+    get:
+      tags:
+      - flights
+      summary: GetAllFlights
+      operationId: GetAllFlights
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    post:
+      tags:
+      - flights
+      summary: CreateFlights
+      operationId: CreateFlights
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/PROD_URLflights_Request'
+              - example:
+                  date: 2023-05-05
+                  airline: singapore airline
+                  departure: mumbai
+                  arrival: singapore
+                  price: 14500
+            example:
+              date: 2023-05-05
+              airline: singapore airline
+              departure: mumbai
+              arrival: singapore
+              price: 14500
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /flights/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    patch:
+      tags:
+      - flights
+      summary: UpdateFlight
+      operationId: UpdateFlight
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/PROD_URLflights645512d5d8f00bea56b3b0d1_Request'
+              - example:
+                  airline: japan airline
+            example:
+              airline: japan airline
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+      - flights
+      summary: DeleteFlight
+      operationId: DeleteFlight
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    PROD_URLflights_Request:
+      title: PROD_URLflights_Request
+      required:
+      - date
+      - airline
+      - departure
+      - arrival
+      - price
+      type: object
+      properties:
+        date:
+          type: string
+        airline:
+          type: string
+        departure:
+          type: string
+        arrival:
+          type: string
+        price:
+          type: integer
+          format: int32
+      example:
+        date: 2023-05-05
+        airline: singapore airline
+        departure: mumbai
+        arrival: singapore
+        price: 14500
+    PROD_URLflights645512d5d8f00bea56b3b0d1_Request:
+      title: PROD_URLflights645512d5d8f00bea56b3b0d1_Request
+      required:
+      - airline
+      type: object
+      properties:
+        airline:
+          type: string
+      example:
+        airline: japan airline
+tags:
+
+- name: flights
+  description: ''

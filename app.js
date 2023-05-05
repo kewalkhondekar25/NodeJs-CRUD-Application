@@ -8,6 +8,11 @@ const helmet = require('helmet')
 const cors = require("cors")
 const xss = require('xss-clean')
 
+//Swagger Implementation
+const swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger.yaml')
+
 //importing mongoose module
 const connectDB = require('./database/connect')
 
@@ -32,8 +37,9 @@ app.use('/api/v1/flights', flights)
 
 
 app.get('/', (req, res) => {
-    res.send('<h1 style = " background-color:#F5F5F7; color:#7AA874; text-align:center; font-family: Helvetica, Arial; font-weight: 600px; font-size:48px; color:black; margin-top: 250px;">Welcome Onboard!</br><p style="color:grey; font-size:35px"> <a href="#">FlightsAPI</a></p></h1>')
+    res.send('<h1 style = " background-color:#F5F5F7; color:#7AA874; text-align:center; font-family: Helvetica, Arial; font-weight: 600px; font-size:48px; color:black; margin-top: 250px;">Flights API</br><p style="color:grey; font-size:35px"> <a href="/api-docs">Documentation</a></p></h1>')
 })
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 const port = process.env.PORT || 8080
 
