@@ -9,6 +9,7 @@ const connectDB = require('./database/connect')
 
 const express = require('express')
 const app = express()
+app.use(cors())
 
 //importing router
 const flights = require('./routes/flights')
@@ -16,7 +17,7 @@ const flights = require('./routes/flights')
 
 //extra security package
 const helmet = require('helmet')
-const cors = require('cors')
+const cors = require("cors")
 const xss = require('xss-clean')
 
 
@@ -24,11 +25,12 @@ const xss = require('xss-clean')
 //setup middleware
 app.use(express.json())
 
+
 //implementing router
 app.use('/api/v1/flights', flights)
 
 app.use(helmet())
-app.use(cors())
+
 app.use(xss())
 
 app.get('/', (req, res) => {
